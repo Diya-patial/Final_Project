@@ -1,0 +1,73 @@
+name: Central Dashboard Notification
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  notify_dashboard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify pending
+        env:
+          WEBHOOK_URL: ${{ secrets.DASHBOARD_WEBHOOK_URL }}
+        run: |
+          curl -f -X POST -H "Content-Type: application/json" \
+          -d '{
+            "project_name": "DevOps Deployment Dashboard",
+            "repository": "${{ github.event.repository.name }}",
+            "repository_full_name": "${{ github.repository }}",
+            "branch": "${{ github.ref_name }}",
+            "developer": "${{ github.actor }}",
+            "commit_message": "${{ github.event.head_commit.message }}",
+            "commit_url": "${{ github.event.head_commit.url }}",
+            "commit_id": "${{ github.sha }}",
+            "timestamp": "${{ github.event.head_commit.timestamp }}",
+            "status": "pending"
+          }' \
+          $WEBHOOK_URL
+
+      - name: Simulate work
+        run: echo "Workflow running"
+
+      - name: Notify success
+        if: success()
+        env:
+          WEBHOOK_URL: ${{ secrets.DASHBOARD_WEBHOOK_URL }}
+        run: |
+          curl -f -X POST -H "Content-Type: application/json" \
+          -d '{
+            "project_name": "DevOps Deployment Dashboard",
+            "repository": "${{ github.event.repository.name }}",
+            "repository_full_name": "${{ github.repository }}",
+            "branch": "${{ github.ref_name }}",
+            "developer": "${{ github.actor }}",
+            "commit_message": "${{ github.event.head_commit.message }}",
+            "commit_url": "${{ github.event.head_commit.url }}",
+            "commit_id": "${{ github.sha }}",
+            "timestamp": "${{ github.event.head_commit.timestamp }}",
+            "status": "success"
+          }' \
+          $WEBHOOK_URL
+
+      - name: Notify failure
+        if: failure()
+        env:
+          WEBHOOK_URL: ${{ secrets.DASHBOARD_WEBHOOK_URL }}
+        run: |
+          curl -f -X POST -H "Content-Type: application/json" \
+          -d '{
+            "project_name": "DevOps Deployment Dashboard",
+            "repository": "${{ github.event.repository.name }}",
+            "repository_full_name": "${{ github.repository }}",
+            "branch": "${{ github.ref_name }}",
+            "developer": "${{ github.actor }}",
+            "commit_message": "${{ github.event.head_commit.message }}",
+            "commit_url": "${{ github.event.head_commit.url }}",
+            "commit_id": "${{ github.sha }}",
+            "timestamp": "${{ github.event.head_commit.timestamp }}",
+            "status": "failed"
+          }' \
+          $WEBHOOK_URL

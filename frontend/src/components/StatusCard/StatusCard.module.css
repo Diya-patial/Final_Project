@@ -1,0 +1,88 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  border-color: var(--card-color, var(--accent));
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--card-color, var(--accent)), transparent 70%);
+  opacity: 0.06;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.card:hover .glow { opacity: 0.12; }
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconWrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon { font-size: 18px; }
+
+.change {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 99px;
+}
+
+.positive {
+  color: var(--green);
+  background: rgba(16,185,129,0.1);
+}
+
+.negative {
+  color: var(--red);
+  background: rgba(239,68,68,0.1);
+}
+
+.value {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted2);
+}
+
+.sparkline {
+  height: 40px;
+  margin-top: 8px;
+}

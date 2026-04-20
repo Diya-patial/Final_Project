@@ -1,0 +1,308 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.liveRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+
+.liveActive {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.liveText {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.8px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--muted2);
+}
+
+.headerActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.liveBtn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted2);
+  cursor: pointer;
+}
+
+.liveBtnActive {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.levelBadges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.levelBadge {
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid;
+  min-width: 80px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.levelBadgeActive {
+  transform: translateY(-1px);
+}
+
+.levelCount {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.levelLabel {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.infoLevel {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.08);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+.debugLevel {
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+.warnLevel {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.errorLevel {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Outfit", sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+}
+
+.searchInput::placeholder {
+  color: var(--muted);
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+
+.select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  color: var(--muted2);
+  outline: none;
+  cursor: pointer;
+}
+
+.terminal {
+  background: #0a0a0d;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.termBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.termDots {
+  display: flex;
+  gap: 6px;
+}
+
+.termDotRed,
+.termDotYellow,
+.termDotGreen {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.termDotRed {
+  background: #ef4444;
+}
+
+.termDotYellow {
+  background: #f59e0b;
+}
+
+.termDotGreen {
+  background: #10b981;
+}
+
+.termTitle {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: var(--text);
+  flex: 1;
+}
+
+.termStatus {
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+.logLines {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.logRow {
+  display: grid;
+  grid-template-columns: 110px 90px 170px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+}
+
+.logTime {
+  color: #94a3b8;
+}
+
+.logLevel {
+  display: inline-flex;
+  justify-content: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid currentColor;
+}
+
+.logService {
+  color: #c084fc;
+}
+
+.logMsg {
+  color: #d1d5db;
+  word-break: break-word;
+}
+
+@media (max-width: 900px) {
+  .logRow {
+    grid-template-columns: 1fr;
+  }
+}

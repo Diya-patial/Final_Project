@@ -1,0 +1,128 @@
+.wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.wrap:hover { border-color: var(--border2); }
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+.subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 4px 12px;
+  flex-shrink: 0;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border2) transparent;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 500px;
+}
+
+.th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: left;
+  padding: 0 16px 12px 0;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+  cursor: default;
+}
+
+.tr:last-child { border-bottom: none; }
+
+.tr:hover td {
+  background: rgba(99,102,241,0.04);
+}
+
+.td {
+  padding: 13px 16px 13px 0;
+  vertical-align: middle;
+  color: var(--muted2);
+  font-size: 13px;
+}
+
+.bold {
+  font-weight: 600;
+  color: var(--text) !important;
+  font-size: 14px !important;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px !important;
+}
+
+.accent {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px !important;
+  color: var(--accent2) !important;
+}
+
+.muted {
+  font-size: 12px !important;
+  color: var(--muted) !important;
+}
+
+.empty {
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.emptyIcon {
+  font-size: 28px;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.empty p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--muted);
+}

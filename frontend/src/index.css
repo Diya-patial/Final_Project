@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:       #0e0e11;
+  --surface:  #141418;
+  --surface2: #1a1a20;
+  --border:   rgba(255,255,255,0.07);
+  --border2:  rgba(255,255,255,0.14);
+  --accent:   #6366f1;
+  --accent2:  #818cf8;
+  --green:    #10b981;
+  --amber:    #f59e0b;
+  --red:      #ef4444;
+  --text:     #f4f4f6;
+  --muted:    #7c8291;
+  --muted2:   #a8b0c0;
+}
+
+:root.light {
+  --bg:       #eef0f5;
+  --surface:  #f4f5f9;
+  --surface2: #e8eaf0;
+  --border:   rgba(0,0,0,0.07);
+  --border2:  rgba(0,0,0,0.12);
+  --accent:   #6366f1;
+  --accent2:  #4338ca;
+  --green:    #047857;
+  --amber:    #b45309;
+  --red:      #b91c1c;
+  --text:     #0d0d1a;
+  --muted:    #4b5260;
+  --muted2:   #2d3340;
+}
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.8px; color: var(--text); }
+h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; color: var(--text); }
+h3 { font-size: 17px; font-weight: 600; letter-spacing: -0.2px; color: var(--text); }
+p  { font-size: 14px; color: var(--muted2); line-height: 1.65; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
