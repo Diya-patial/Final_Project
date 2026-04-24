@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const si = require("systeminformation");
 
 const Deployment = require("../models/deployement");
 const Log = require("../models/log");
@@ -61,9 +62,15 @@ router.post("/dashboard", async (req, res) => {
     });
     const criticalErrors = await Log.countDocuments({ level: "error" });
 
+    const load = await si.currentLoad();
+    const memory = await si.mem();
+
+    const cpuUsage = Math.round(load.currentLoad);
+    const memoryUsage = Math.round((memory.used / memory.total) * 100);
+
     await SystemMetrics.create({
-      cpuUsage: 40,
-      memoryUsage: 55,
+      cpuUsage,
+      memoryUsage,
       activeDeploys,
       criticalErrors,
       status: criticalErrors > 0 ? "warning" : "stable",
